@@ -43,8 +43,5 @@ public class SubmissionQueueTest
 		System.out.println("\tAssignment2 has id: " + assignment2.getId());
 		System.out.println("\tAssignment3 has id: " + assignment3.getId());
 		System.out.println("\tAssignment4 has id: " + assignment4.getId());
-
-
-	
 	}
 }

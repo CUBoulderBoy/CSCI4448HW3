@@ -2,9 +2,13 @@ import java.util.*;
 
 public class SubmissionQueue
 {
-	private Queue<Submission> queue = new LinkedList<Submission>();
-	private static SubmissionQueue singletonQueue = null;
+	private Queue<Submission> queue;
+	private static SubmissionQueue singletonQueue;
 
+	public SubmissionQueue(){
+		queue = new LinkedList<Submission>();
+	}
+	
 	public static SubmissionQueue getSubmissionQueue()
 	{
 		if(singletonQueue == null)
@@ -24,12 +28,12 @@ public class SubmissionQueue
 
 	public void printQueue()
 	{
-		Iterator iter = queue.iterator();
+		Iterator<Submission> iter = queue.iterator();
 		int index = 0;
 
 		while(iter.hasNext())
 		{	
-			Submission iterSub = (Submission)iter.next();
+			Submission iterSub = iter.next();
 			System.out.println("Element " + index + " in queue: " + iterSub.getId());
 			index++;
 		}
