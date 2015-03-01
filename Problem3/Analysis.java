@@ -8,6 +8,7 @@ public class Analysis
 			System.out.println("Usage: java Analysis type");
 			System.exit(-1);
 		}
+		
 		String type = args[0];
 		LogFactory factory = new LogFactory();
 		Logging logfile = factory.createLog(type);
