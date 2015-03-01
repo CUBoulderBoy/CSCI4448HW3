@@ -1,11 +1,17 @@
-import java.util.ArrayList;
+import java.util.*;
 
 public class TreeFactory {
-	private static final ArrayList<Tree> mylist = new ArrayList<Tree>();
+	private static Map<String, Tree> treeList = new HashMap<String, Tree>();
+	
 	public static Terrain getTree(String type)
 	{
-		Tree tree = new Tree(type);
-		mylist.add(tree);
+		Tree tree = treeList.get(type);
+		
+		if (tree == null){
+			tree = new Tree(type);
+			treeList.put(type, tree);
+		}
+
 		return tree;
    }
 }
