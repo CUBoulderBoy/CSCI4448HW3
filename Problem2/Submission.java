@@ -5,11 +5,13 @@
 */
 
 import java.util.Random;
+import java.util.Observable;
 
-public class Submission
+public class Submission extends Observable
 {	
     private Random myRandom;
 	private boolean lastErrorWasTimeout;
+	private boolean passed;
 
     // You may add attributes to this class if necessary
 
@@ -22,17 +24,23 @@ public class Submission
     public void runTestCase()
 	{
 	    // For now, randomly pass or fail, possibly due to a timeout
-		boolean passed = myRandom.nextBoolean();
+		passed = myRandom.nextBoolean();
 		if(!passed)
 		{
 		    lastErrorWasTimeout = myRandom.nextBoolean();
 		}
 		
-		// You can add to the end of this method for reporting purposes
+		setChanged();
+		notifyObservers();
 	}
 	
     public boolean wasTimeoutError()
 	{
 	    return lastErrorWasTimeout;
+	}
+
+	public boolean didPass()
+	{
+		return passed;
 	}
 }
